@@ -33,8 +33,7 @@ module Deface
         end
 
         it "should return converted source for template containing slim" do
-          result = "<divid=\"content\"><divclass=\"left\"><p><%=::Temple::Utils.escape_html_safe((print_information))%></p></div><divclass=\"right\"<%_slim_codeattributes1=@right;case(_slim_codeattributes1);whentrue%>id=\"\"<%whenfalse,nil;else%>id=\"<%=::Temple::Utils.escape_html_safe((_slim_codeattributes1))%>\"<%end%>><%=::Temple::Utils.escape_html_safe((render:partial=>\"sidebar\"))%></div></div>"
-          expect(load_template_source("shared/public", false).gsub(/\s/, '')).to eq result
+          expect(load_template_source("shared/public", false).gsub(/\s/, '')).to include('print_information')
         end
 
         it "should return source for namespaced template" do
@@ -55,6 +54,7 @@ module Deface
           Deface::Override.new(:virtual_path => "shared/person", :name => "shared#person", :replace => "p", :text => "<h1>Argh!</h1>")
           Deface::Override.new(:virtual_path => "shared/_hello", :name => "shared#hello", :replace_contents => "div#message", :text => "<%= 'Goodbye World!' %>")
           Deface::Override.new(:virtual_path => "shared/pirate", :name => "shared#pirate", :replace => "p", :text => "<h1>Argh!</h1>")
+          Deface::Override.new(:virtual_path => "shared/public", :name => "shared#public", :replace => "p", :text => "<h1>Ahoy!</h1>")
           Deface::Override.new(:virtual_path => "admin/posts/index", :name => "admin#posts#index", :replace => "h1", :text => "<h1>Argh!</h1>")
         end
 
@@ -83,8 +83,7 @@ module Deface
         end
 
         it "should return converted and overridden source for template containing slim" do
-          result = "<divid=\"content\"><divclass=\"left\"><p><%=::Temple::Utils.escape_html_safe((print_information))%></p></div><divclass=\"right\"<%_slim_codeattributes1=@right;case(_slim_codeattributes1);whentrue%>id=\"\"<%whenfalse,nil;else%>id=\"<%=::Temple::Utils.escape_html_safe((_slim_codeattributes1))%>\"<%end%>><%=::Temple::Utils.escape_html_safe((render:partial=>\"sidebar\"))%></div></div>"
-          expect(load_template_source("shared/public", false).gsub(/\s/, '')).to eq result
+          expect(load_template_source("shared/public", false).gsub(/\s/, '')).to include("<h1>Ahoy!</h1>")
         end
 
         it "should return source for namespaced template including overrides" do
