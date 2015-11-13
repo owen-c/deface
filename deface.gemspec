@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   ]
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.homepage = "https://github.com/spree/deface"
+  s.homepage = "https://github.com/DefaceCommunity/deface"
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.summary = "Deface is a library that allows you to customize ERB, Haml and Slim views in Rails"
