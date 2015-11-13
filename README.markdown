@@ -1,8 +1,4 @@
-<p style="float:right;">
-  <a href="http://secure.travis-ci.org/spree/deface">
-    <img src="https://secure.travis-ci.org/spree/deface.png?branch=master">
-  </a>
-</p>
+[![Build Status](https://travis-ci.org/DefaceCommunity/deface.svg?branch=master)](https://travis-ci.org/DefaceCommunity/deface)
 
 Deface
 ======
