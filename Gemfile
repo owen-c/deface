@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', ENV['RAILS'] || '~> 3.2.13'
+gem 'rails', ENV['RAILS'] || '~> 4.0.13'
 
 group :test do
   gem 'test-unit'
